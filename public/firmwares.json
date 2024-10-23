@@ -1,0 +1,11 @@
+[
+  {
+    "label": "2.1 esp32dev",
+    "url": "firmware_esp32dev_merged.bin"
+  },
+  {
+    "label": "2.1 nodo",
+    "url": "firmware_nodo_merged.bin",
+    "chip": "ESP32-C3"
+  }
+]
