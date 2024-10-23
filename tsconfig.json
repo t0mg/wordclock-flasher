@@ -13,5 +13,5 @@
     "importHelpers": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "lib/bundle.js"]
 }

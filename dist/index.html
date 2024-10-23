@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Wordclock Flashing Tool</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+  <link rel="icon" href="https://t0mg.github.io/wordclock-flasher/logo.6181164d.svg" type="image/svg+xml">
+  <script src="https://cdn.jsdelivr.net/npm/xterm@4.19.0/lib/xterm.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.js"></script>
+  <style>input[type="checkbox"] {
+  width: auto;
+  margin: 10px;
+  scale: 1.5;
+}
+
+body {
+  text-align: center;
+  color: #eee;
+  background: #121212;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font: 100% system-ui;
+  display: flex;
+}
+
+button {
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #16a1e7;
+  border: 0;
+  border-radius: 0;
+  width: 100%;
+  margin: 20px 0 0;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+}
+
+button:disabled {
+  color: gray;
+  cursor: auto;
+  background: #121212;
+}
+
+a {
+  color: #16a1e7;
+}
+
+div {
+  padding: 0;
+}
+
+p {
+  text-align: left;
+}
+
+.logo {
+  width: 80vw;
+  max-width: 160px;
+  margin: 40px auto;
+}
+
+section {
+  background: #000;
+  border: none;
+  border-radius: 0;
+  width: calc(100vw - 100px);
+  max-width: 540px;
+  margin: 0 0 40px;
+  padding: 20px 15px;
+  position: relative;
+}
+
+.logo, section {
+  box-shadow: 0 0 15px 1px #ffffff7d;
+}
+
+input, select {
+  border: none;
+  width: 100%;
+  margin: 5px 0 0;
+  padding: 5px;
+  line-height: 20px;
+}
+
+select {
+  text-align: center;
+  font-size: 1em;
+}
+
+input[type="range"] {
+  margin-left: 30px;
+  padding: 0;
+  position: relative;
+}
+
+input[type="range"]:before {
+  content: attr(data-label);
+  color: #eee;
+  width: 25px;
+  line-height: 20px;
+  display: inline;
+  position: absolute;
+  left: -30px;
+}
+
+label {
+  margin: 20px 0 0;
+  display: inline-block;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+  font-weight: lighter;
+}
+
+.advanced {
+  display: none !important;
+}
+
+body.advancedMode .advanced {
+  display: initial !important;
+}
+
+.red {
+  color: #121212;
+  background-color: #faa;
+}
+
+#terminal {
+  margin-top: 20px;
+}
+
+progress {
+  accent-color: #74d419;
+  background-color: #412824;
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #121212;
+}
+
+progress::-webkit-progress-value {
+  background-color: #16a1e7;
+}
+</style>
+</head>
+
+<body>
+  <img src="https://t0mg.github.io/wordclock-flasher/logo.6181164d.svg" class="logo">
+  <section>
+    <h1>Wordclock flashing Tool</h1>
+    <p>A Serial Flasher utility for the <a href="https://github.com/t0mg/wordclock">Wordclock project</a> built with <a href="https://github.com/espressif/esptool-js/tree/main">esptool-js</a></p>
+    <div id="safariErr" style="display: none">
+      <p style="color: red">This tool is not supported on Safari browser!</p>
+    </div>
+    <div class="container" id="main">
+      <p>
+        <label for="advanced">Advanced mode</label><input type="checkbox" id="advanced">
+      </p>
+      <div id="program">
+        <p style="display: none" id="lblConnTo">Connected to device: </p>
+        <div>
+          <button id="connectButton">Connect</button>
+          <button id="disconnectButton" style="display: none">Disconnect</button>
+          <button class="advanced" id="copyTraceButton" disabled="">Copy Trace</button>
+          <button class="advanced red" id="eraseButton" disabled="">Erase Flash</button>
+        </div>
+
+        <div id="flash" style="display: none">
+          <label style="float: left" for="select">Firmware</label><span id="fileSelect"></span>
+          <button id="programButton">Flash</button>
+          <progress value="0" max="100" id="progressBar"></progress>
+        </div>
+      </div>
+  </div></section>
+  <section class="advanced">
+    <div id="console">
+      <h1>Console</h1>
+      <div>
+        <button id="consoleStartButton">Connect</button>
+        <button id="consoleStopButton" style="display: none">Disconnect</button>
+        <button id="resetButton" style="display: none">Reset</button>
+      </div>
+    </div>
+    <div id="terminal"></div>
+  </section>
+
+  <script src="https://t0mg.github.io/wordclock-flasher/index.f4e2aad5.js" type="module"></script>
+  <script>// Safari 3.0+ "[object HTMLElementConstructor]"
+var isSafari = /constructor/i.test(window.HTMLElement) || function(p) {
+    return p.toString() === "[object SafariRemoteNotification]";
+}(!window["safari"] || typeof safari !== "undefined" && window["safari"].pushNotification);
+if (isSafari) {
+    document.getElementById("safariErr").style.display = "inline";
+    document.getElementById("main").style.display = "none";
+}
+
+</script>
+</body>
+
+</html>

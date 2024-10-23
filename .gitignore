@@ -1,6 +1,6 @@
 .vs
 .parcel-cache
-dist
+dist/*.bin
 node_modules
 package-lock.json
 public/*.bin

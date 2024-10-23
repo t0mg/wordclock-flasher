@@ -83,7 +83,7 @@ connectButton.onclick = async () => {
     console.error(e);
     term.writeln(`Error: ${e.message}`);
     if (!advanced.checked) {
-      alert(e.message);
+      alert(e.message + '\n\nPlease reload this page.');
     }
   }
 
@@ -134,7 +134,7 @@ eraseButton.onclick = async () => {
     console.error(e);
     term.writeln(`Error: ${e.message}`);
     if (!advanced.checked) {
-      alert(e.message);
+      alert(e.message + '\n\nPlease reload this page.');
     }
   } finally {
     eraseButton.disabled = false;
@@ -258,6 +258,9 @@ programButton.onclick = async () => {
   } catch (e) {
     console.error(e);
     term.writeln(`Error: ${e.message}`);
+    if (!advanced.checked) {
+      alert('Flashing failed.\n\n' + e.message);
+    }
   } finally {
     programButton.removeAttribute("disabled");
   }
@@ -307,10 +310,7 @@ function createFileSelector(fileList) {
   fileSelect.childNodes.forEach((n) => fileSelect.removeChild(n));
   const select = document.createElement('select');
   select.id = "select";
-  console.log("wordclockType " + getWordclockType(chip));
   fileList.forEach((file: { url: string; label: string; chip: string; }) => {
-    console.log("chip: " + file.chip);
-    console.log("type:" + getWordclockType(file.chip));
     if (getWordclockType(chip) == getWordclockType(file.chip)) {
       const option = document.createElement('option');
       option.value = file.url;

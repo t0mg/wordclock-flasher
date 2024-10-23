@@ -1,7 +1,7 @@
 {
   "name": "typescript",
   "version": "1.0.0",
-  "description": "esptool-js based flasher utility for the Wordcloc project",
+  "description": "esptool-js based flasher utility for the Wordclock project",
   "source": "src/index.html",
   "scripts": {
     "dev": "npm run clean && parcel src/index.html",
