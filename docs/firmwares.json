@@ -1,5 +1,25 @@
 [
   {
+    "label": "2.2 esp32",
+    "url": "firmware_2.2_esp32dev_merged.bin",
+    "chip": "ESP32"
+  },
+  {
+    "label": "2.2 esp32 (with serial debug)",
+    "url": "firmware_2.2_esp32dev_debug_merged.bin",
+    "chip": "ESP32"
+  },
+  {
+    "label": "2.2 nodo",
+    "url": "firmware_2.2_nodo_merged.bin",
+    "chip": "ESP32-C3"
+  },
+  {
+    "label": "2.2 nodo (with serial debug)",
+    "url": "firmware_2.2_nodo_debug_merged.bin",
+    "chip": "ESP32-C3"
+  },
+  {
     "label": "2.1 esp32",
     "url": "firmware_2.1_esp32dev_merged.bin",
     "chip": "ESP32"
