@@ -4,9 +4,9 @@
   "description": "esptool-js based flasher utility for the Wordclock project",
   "source": "src/index.html",
   "scripts": {
-    "dev": "npm run clean && parcel src/index.html",
-    "build": "npm run clean && parcel build src/index.html --no-optimize --public-url https://t0mg.github.io/wordclock-flasher/",
-    "clean": "rimraf dist .parcel-cache && cp -r public dist",
+    "dev": "npm run clean && parcel src/index.html --dist-dir docs",
+    "build": "npm run clean && parcel build src/index.html --dist-dir docs --no-optimize --public-url https://t0mg.github.io/wordclock-flasher/",
+    "clean": "rimraf docs .parcel-cache && cp -r public docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
