@@ -8,7 +8,7 @@ This project is based on a fork of the [esptool typescript example](https://gith
 
 ## Usage
 
-- Head over to the [public website](https://t0mg.github.io/wordclock-flasher/https://t0mg.github.io/wordclock-flasher/) of this tool using Chrome, Edge or another [Web Serial compatible browser](https://caniuse.com/web-serial)
+- Head over to the [public website](https://t0mg.github.io/wordclock-flasher/) of this tool using Chrome, Edge or another [Web Serial compatible browser](https://caniuse.com/web-serial)
 - Press the Connect button, a system dialog appears to select a serial interface
 - Connect your Wordclock to your computer over USB and a new entry should show up in the dialog. Select that and confirm
 - The interface should identify your clock based on the chip it uses ([original DIY project](https://github.com/t0mg/wordclock/blob/main/README.md#hardware), or Nodo kit from [nodo-shop.nl](https://www.nodo-shop.nl/en/52-wordclock)) and display a list of available firmware files
