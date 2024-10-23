@@ -8,9 +8,9 @@ This project is based on a fork of the [esptool typescript example](https://gith
 
 ## Usage
 
-- Head over to the public website of this tool using Chrome, Edge or another [Web Serial compatible browser](https://caniuse.com/web-serial).
-- Press the Connect button, a dialog appears
-- Connect your wordclock to your computer over USB and a new entry should show up in the dialog. Select that and confirm.
+- Head over to the [public website](https://t0mg.github.io/wordclock-flasher/https://t0mg.github.io/wordclock-flasher/) of this tool using Chrome, Edge or another [Web Serial compatible browser](https://caniuse.com/web-serial)
+- Press the Connect button, a system dialog appears to select a serial interface
+- Connect your Wordclock to your computer over USB and a new entry should show up in the dialog. Select that and confirm
 - The interface should identify your clock based on the chip it uses ([original DIY project](https://github.com/t0mg/wordclock/blob/main/README.md#hardware), or Nodo kit from [nodo-shop.nl](https://www.nodo-shop.nl/en/52-wordclock)) and display a list of available firmware files
 - Click FLASH
 
@@ -18,7 +18,7 @@ This project is based on a fork of the [esptool typescript example](https://gith
 
 By checking Advanced mode you'll reveal a few more options as well as full serial console that you can use separately. This is useful to check the serial debug messages if you are using a debug firmware.
 
-## Developent
+## Development
 
 Same as the original [esptool typescript example](https://github.com/espressif/esptool-js/tree/main/examples/typescript):
 
@@ -29,7 +29,7 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:1234 in Chrome or Edge. The `npm run dev` step will call Parcel which start a local http server serving `index.html` with compiled `index.ts`.
+Then open http://localhost:1234 in Chrome or Edge. The `npm run dev` step will call Parcel which starts a local http server serving `index.html` with compiled `index.ts`.
 
 ### Generate build to publish
 
