@@ -1,6 +1,6 @@
 .vs
 .parcel-cache
-docs/*.bin
+docs/firmware_*
 node_modules
 package-lock.json
-public/*.bin
+public/firmware_*
